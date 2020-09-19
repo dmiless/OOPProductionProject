@@ -1,7 +1,3 @@
-# OOPProductionProject
-
-Hello and welcome to my OOP Production Project! 
-
 # OOP Production Project
 
 This JavaFX project allows the user to input data in a GUI so that it is saved inside a database.<br />
@@ -12,7 +8,7 @@ I made this as my first project for my COP 3003 class with Professor Vanselow.<b
 
 ## Demonstration
 
-Coming Soon 
+Coming Soon <br />
 Add an animated gif of your program running. You can use ShareX, GIPHY Capture or another tool. https://blog.github.com/2018-06-29-GIF-that-keeps-on-GIFing/
 Note for school project: This is a great way for friends and family to easily see your project in action. 
 The markdown is  \!\[Alt text\]\(relative/path/to/img.png) <br />
@@ -20,7 +16,7 @@ The markdown is  \!\[Alt text\]\(relative/path/to/img.png) <br />
 
 ## Documentation
 
-Coming Soon 
+Coming Soon <br />
 Create a docs folder in your project. If using Java, generate JavaDoc in your IDE. If using C++, use Doxygen. Change repository settings (using Settings at top of page) to use GitHub Pages with your docs folder. Add a link to the javadoc/doxygen index.html file with this markdown: \[Text to appear]\(URL) <br />
 The URL will be YourGitHubUserName.github.io/YourRepositoryName/foldername/filename<br /> 
 Do not include the docs folder name in your URL. <br />
@@ -34,7 +30,7 @@ Such as a class diagram. <br />
  
 ## Getting Started
 
-Coming Soon 
+Coming Soon <br />
 Instructions to get a copy of the project up and running on someone's local machine for development and testing purposes.
 <br />
 Note for real project: You want to be able to share your project and enable collaboration. 
@@ -57,7 +53,7 @@ I have been working on this project privately with assistiance of my professor a
 
 ## License
 
-Coming Soon 
+Coming Soon <br />
 Public repositories on GitHub are often used to share open source software. For your repository to truly be open source, you'll need to license it so that others are free to use, change, and distribute the software. https://help.github.com/articles/licensing-a-repository/ <br />
 You have the option to choose a license when you first create your repository. </br>
 If you need to create a license for an existing repository...
