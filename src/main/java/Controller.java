@@ -44,8 +44,6 @@ public class Controller {
 
   /**
    * Initializes the database and fills boxes with data options also allows user to enter values
-   *
-   * @return void
    */
   public void initialize() {
     for (int count = 1; count <= 10; count++) {
@@ -67,8 +65,6 @@ public class Controller {
   /**
    * Connects program to the database Gets and inserts user data from boxes to database Prints
    * database info to console
-   *
-   * @return void
    */
   public void connectToDb() {
     final String JDBC_DRIVER = "org.h2.Driver";
