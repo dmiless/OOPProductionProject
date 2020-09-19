@@ -10,7 +10,7 @@ I made this as my first project for my COP 3003 class with Professor Vanselow.<b
 
 Gif Coming Soon <br />
 
-![Alpha Progress](AlphaPic.png) 
+![Alpha Progress](AlphaPic.pdf) 
 
 ## Documentation
 
