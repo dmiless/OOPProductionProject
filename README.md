@@ -25,8 +25,7 @@ Sample: \[JavaDoc]\(https://pv-cop.github.io/PV-README-TEMPLATE/javadoc/index.ht
 
 ## Diagrams
 
-
-![Alpha Class Diagrams] (Alpha.pdf)
+![Alpha Class Diagrams](Alpha.pdf)
  
 ## Getting Started
 
