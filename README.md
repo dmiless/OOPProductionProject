@@ -26,7 +26,7 @@ Sample: \[JavaDoc]\(https://pv-cop.github.io/PV-README-TEMPLATE/javadoc/index.ht
 ## Diagrams
 
 Such as a class diagram. <br /> 
-![Class Diagrams]\C:\Users\Dylan\Desktop\COP 3003\Alpha.pdf)
+![Class Diagrams](Alpha.pdf)
  
 ## Getting Started
 
