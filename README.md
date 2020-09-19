@@ -8,11 +8,9 @@ I made this as my first project for my COP 3003 class with Professor Vanselow.<b
 
 ## Demonstration
 
-Coming Soon <br />
-Add an animated gif of your program running. You can use ShareX, GIPHY Capture or another tool. https://blog.github.com/2018-06-29-GIF-that-keeps-on-GIFing/
-Note for school project: This is a great way for friends and family to easily see your project in action. 
-The markdown is  \!\[Alt text\]\(relative/path/to/img.png) <br />
-![Sample GIF](docs/octocat_github.gif) 
+Gif Coming Soon <br />
+
+![Alpha Progress](AlphaPic.png) 
 
 ## Documentation
 
@@ -25,11 +23,6 @@ The markdown is  \!\[Alt text\]\(relative/path/to/img.png) <br />
 ## Getting Started
 
 Coming Soon <br />
-Instructions to get a copy of the project up and running on someone's local machine for development and testing purposes.
-<br />
-Note for real project: You want to be able to share your project and enable collaboration. 
-<br />
-Note for school project: You want a potential client or hirer to be able to run your program. 
 
 ## Built With
 
