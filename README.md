@@ -18,7 +18,8 @@ Gif Coming Soon <br />
 
 ## Diagrams
 
-![Alpha Class Diagrams](Alpha.pdf)
+![Alpha Class Diagrams](Alpha.pdf) <br />
+![Alpha Database Diagrams](alphaDatabase.pdf)
  
 ## Getting Started
 
