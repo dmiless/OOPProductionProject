@@ -1,10 +1,10 @@
 # OOP Production Project
 
 This JavaFX project allows the user to input data in a GUI so that it is saved inside a database.<br />
-I created this project in my Object Oriented class by myself and am releasing it's Alpha version.<br />
-I have been working on this project for 5 weeks and this is the Alpha version after completing Sprint 1.<br />
+I created this project in my Object Oriented class by myself and am releasing it's Beta version.<br />
+I have been working on this project for 5 weeks and this is the Beta version after completing Sprint 2.<br />
 This assignment has challenged me in using a GUI and taking the input to be used in a database.<br />
-I made this as my first project for my COP 3003 class with Professor Vanselow.<br />
+I made this as my main project for my COP 3003 class with Professor Vanselow.<br />
 
 ## Demonstration
 
