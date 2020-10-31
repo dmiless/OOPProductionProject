@@ -2,7 +2,7 @@
  * The controller class for adding new product info from GUI into database. Sprint 2 (Beta)
  *
  * @author Dylan Miles
- * @date 9/19/20
+ * @date 10/31/20
  */
 
 import java.time.LocalTime;
