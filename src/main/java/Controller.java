@@ -24,6 +24,7 @@ import java.sql.*;
 
 public class Controller {
 
+  public boolean doOnce = true;
   @FXML
   private TextField txtProductName;
 
@@ -89,7 +90,7 @@ public class Controller {
     cbItemType.getItems().add(ItemType.valueOf(String.valueOf(ItemType.AUDIO_MOBILE)));
     cbItemType.getItems().add(ItemType.valueOf(String.valueOf(ItemType.VISUAL_MOBILE)));
     cbItemType.getSelectionModel().selectFirst();
-
+    onStart();
   }
 
   /**
@@ -337,8 +338,234 @@ public class Controller {
 
       }
       ResultSet rs2 = stmt.executeQuery(sql2);
+
       while (rs2.next()) {
         pr2.setProductionNum(itemCount);
+
+//        //print database info to console
+//        System.out.println(rs2.getString(1));
+//        System.out.println(rs2.getString(2));
+//        System.out.println(rs2.getString(3));
+//        System.out.println(rs2.getString(4));
+        if (rs2.isLast()) {
+          proLog.appendText("Prod. Num: " + rs2.getString(1) + " Product ID: " + rs2.getString(2)
+              + " Serial Num: " + rs2.getString(3) + " Date: " + rs2.getString(4) + "\n");
+
+        }
+
+      }
+
+      colProduct.setCellValueFactory(new PropertyValueFactory("Name"));
+      colManu.setCellValueFactory(new PropertyValueFactory("Manufacturer"));
+      colType.setCellValueFactory(new PropertyValueFactory("Type"));
+
+      tableView.setItems(productLine);
+
+      listView.getItems().addAll(productLine);
+
+      // STEP 4: Clean-up environment
+      stmt.close(); //should close out of the database
+      conn.close(); //close out connection
+
+    } catch (ClassNotFoundException e) {
+      e.printStackTrace();
+
+    } catch (SQLException e) {
+      e.printStackTrace();
+    }
+  }
+
+  /**
+   * Connects program to the database Gets and inserts user data from boxes to database Prints
+   * database info to console
+   */
+  public void onStart() {
+    final String JDBC_DRIVER = "org.h2.Driver";
+    final String DB_URL = "jdbc:h2:./res/HR";
+
+    //  Database credentials
+    final String USER = ""; // empty database password
+    final String PASS = "";
+    Connection conn = null;
+    Statement stmt = null;
+
+    try {
+      // STEP 1: Register JDBC driver
+      Class.forName(JDBC_DRIVER);
+
+      //STEP 2: Open a connection
+      conn = DriverManager.getConnection(DB_URL, USER, PASS); // no password set - not secure
+
+      //STEP 3: Execute a query
+      stmt = conn.createStatement();
+
+      // test constructor used when creating production records from user interface
+      int productionNumber = 0;
+      int productID = 0;
+      String serialNumber = "";
+      Date dateProduced = new Date();
+
+      ProductionRecord pr2 = new ProductionRecord(productionNumber, productID, serialNumber,
+          dateProduced);
+
+      String sqlprod = "SELECT name, type, manufacturer " +
+          "FROM PRODUCT ";
+
+      ResultSet rsprod = stmt.executeQuery(sqlprod);
+
+      int testNum = 0;
+      ArrayList<String> products = new ArrayList<String>();
+      ArrayList<String> products2 = new ArrayList<String>();
+      boolean j = true;
+
+      while (rsprod.next()) {
+
+        testNum++;
+
+        if (j) {
+          switch (rsprod.getString(2)) {
+            case "VISUAL":
+              products.add(0, rsprod.getString(3).substring(0, 3) + "VI" + "00000");
+              products2.add(rsprod.getString(3).substring(0, 3) + "VI" + "00000");
+              break;
+            case "AUDIO":
+              products.add(0, rsprod.getString(3).substring(0, 3) + "AU" + "00000");
+              products2.add(rsprod.getString(3).substring(0, 3) + "AU" + "00000");
+
+              break;
+            case "VISUAL_MOBILE":
+              products.add(0, rsprod.getString(3).substring(0, 3) + "VM" + "00000");
+              products2.add(rsprod.getString(3).substring(0, 3) + "VM" + "00000");
+
+              break;
+            case "AUDIO_MOBILE":
+              products.add(0, rsprod.getString(3).substring(0, 3) + "AM" + "00000");
+              products2.add(rsprod.getString(3).substring(0, 3) + "AM" + "00000");
+
+              break;
+            default:
+              //System.out.println("Error missing ItemType ");
+              break;
+          }
+          System.out.println(products.get(0));
+          j = false;
+        }
+
+        for (int i = 0; i < products.size(); i++) {
+          //System.out.println(products.get(i));
+          if (rsprod.getString(3) == null || rsprod.getString(3).length() < 3) {
+            break;
+          }
+          if (rsprod.getString(3).substring(0, 3).equals(products.get(i).substring(0, 3))) {
+            int part = Integer.parseInt(products.get(i).substring(5, 10));
+            part++;
+            switch (rsprod.getString(2)) {
+              case "VISUAL":
+                products.add(i,
+                    rsprod.getString(3).substring(0, 3) + "VI" + String.format("%05d", part));
+                products2.add(
+                    rsprod.getString(3).substring(0, 3) + "VI" + String.format("%05d", part));
+                break;
+              case "AUDIO":
+                products.add(i,
+                    rsprod.getString(3).substring(0, 3) + "AU" + String.format("%05d", part));
+                products2.add(
+                    rsprod.getString(3).substring(0, 3) + "AU" + String.format("%05d", part));
+                break;
+              case "VISUAL_MOBILE":
+                products.add(i,
+                    rsprod.getString(3).substring(0, 3) + "VM" + String.format("%05d", part));
+                products2.add(
+                    rsprod.getString(3).substring(0, 3) + "VM" + String.format("%05d", part));
+                break;
+              case "AUDIO_MOBILE":
+                products.add(i,
+                    rsprod.getString(3).substring(0, 3) + "AM" + String.format("%05d", part));
+                products2.add(
+                    rsprod.getString(3).substring(0, 3) + "AM" + String.format("%05d", part));
+                break;
+              default:
+                //System.out.println("Error missing ItemType ");
+                break;
+            }
+            System.out.println(products.get(i));
+            break;
+          } else if (products.size() == i + 1) {
+            switch (rsprod.getString(2)) {
+              case "VISUAL":
+                products.add(i, rsprod.getString(3).substring(0, 3) + "VI" + "00000");
+                products2.add(rsprod.getString(3).substring(0, 3) + "VI" + "00000");
+                break;
+              case "AUDIO":
+                products.add(i, rsprod.getString(3).substring(0, 3) + "AU" + "00000");
+                products2.add(rsprod.getString(3).substring(0, 3) + "AU" + "00000");
+                break;
+              case "VISUAL_MOBILE":
+                products.add(i, rsprod.getString(3).substring(0, 3) + "VM" + "00000");
+                products2.add(rsprod.getString(3).substring(0, 3) + "VM" + "00000");
+                break;
+              case "AUDIO_MOBILE":
+                products.add(i, rsprod.getString(3).substring(0, 3) + "AM" + "00000");
+                products2.add(rsprod.getString(3).substring(0, 3) + "AM" + "00000");
+                break;
+              default:
+                //System.out.println("Error missing ItemType ");
+                break;
+            }
+            System.out.println(products.get(i));
+            break;
+          }
+        }
+
+        //System.out.println(rsprod.getString(3));
+
+      }
+
+      for (int i = 0; products.size() > i; i++) {
+        //System.out.println(products.get(i)+" 9999999999999999999");
+        System.out.println(products2.get(i) + " 888888888");
+
+      }
+
+      String sql = "SELECT name, type, manufacturer " +
+          "FROM PRODUCT ";
+
+      String sql2 = "SELECT PRODUCTION_NUM, PRODUCT_ID, SERIAL_NUM, DATE_PRODUCED " +
+          "FROM PRODUCTIONRECORD ";
+
+      ResultSet rs = stmt.executeQuery(sql);
+      ObservableList<ProductInfo> productLine = FXCollections.observableArrayList();
+
+      while (rs.next()) {
+
+        //print database info to console
+        //System.out.println(rs.getString(1));
+        //System.out.println(rs.getString(2));
+        //System.out.println(rs.getString(3));
+        switch (rs.getString(2)) {
+          case "VISUAL":
+            productLine.add(new ProductInfo(rs.getString(1), rs.getString(3), ItemType.VISUAL));
+            break;
+          case "AUDIO":
+            productLine.add(new ProductInfo(rs.getString(1), rs.getString(3), ItemType.AUDIO));
+            break;
+          case "VISUAL_MOBILE":
+            productLine
+                .add(new ProductInfo(rs.getString(1), rs.getString(3), ItemType.VISUAL_MOBILE));
+            break;
+          case "AUDIO_MOBILE":
+            productLine
+                .add(new ProductInfo(rs.getString(1), rs.getString(3), ItemType.AUDIO_MOBILE));
+            break;
+          default:
+            //System.out.println("Error missing ItemType ");
+            break;
+        }
+
+
+      }
+      ResultSet rs2 = stmt.executeQuery(sql2);
+      while (rs2.next()) {
 
 //        //print database info to console
 //        System.out.println(rs2.getString(1));
@@ -370,6 +597,5 @@ public class Controller {
       e.printStackTrace();
     }
   }
-
 
 }
