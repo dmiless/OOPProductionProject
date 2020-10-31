@@ -67,6 +67,7 @@ public class Controller {
 
   @FXML
   void recordProduction(ActionEvent event) {
+    //tableView.getItems().clear();
 
   }
 
@@ -150,6 +151,7 @@ public class Controller {
 
       int testNum = 0;
       ArrayList<String> products = new ArrayList<String>();
+      ArrayList<String> products2 = new ArrayList<String>();
       boolean j = true;
 
       while (rsprod.next()) {
@@ -160,21 +162,28 @@ public class Controller {
           switch (rsprod.getString(2)) {
             case "VISUAL":
               products.add(0, rsprod.getString(3).substring(0, 3) + "VI" + "00000");
+              products2.add(rsprod.getString(3).substring(0, 3) + "VI" + "00000");
               break;
             case "AUDIO":
               products.add(0, rsprod.getString(3).substring(0, 3) + "AU" + "00000");
+              products2.add(rsprod.getString(3).substring(0, 3) + "AU" + "00000");
+
               break;
             case "VISUAL_MOBILE":
               products.add(0, rsprod.getString(3).substring(0, 3) + "VM" + "00000");
+              products2.add(rsprod.getString(3).substring(0, 3) + "VM" + "00000");
+
               break;
             case "AUDIO_MOBILE":
               products.add(0, rsprod.getString(3).substring(0, 3) + "AM" + "00000");
+              products2.add(rsprod.getString(3).substring(0, 3) + "AM" + "00000");
+
               break;
             default:
               //System.out.println("Error missing ItemType ");
               break;
           }
-          //System.out.println(products.get(0));
+          System.out.println(products.get(0));
           j = false;
         }
 
@@ -190,44 +199,56 @@ public class Controller {
               case "VISUAL":
                 products.add(i,
                     rsprod.getString(3).substring(0, 3) + "VI" + String.format("%05d", part));
+                products2.add(
+                    rsprod.getString(3).substring(0, 3) + "VI" + String.format("%05d", part));
                 break;
               case "AUDIO":
                 products.add(i,
+                    rsprod.getString(3).substring(0, 3) + "AU" + String.format("%05d", part));
+                products2.add(
                     rsprod.getString(3).substring(0, 3) + "AU" + String.format("%05d", part));
                 break;
               case "VISUAL_MOBILE":
                 products.add(i,
                     rsprod.getString(3).substring(0, 3) + "VM" + String.format("%05d", part));
+                products2.add(
+                    rsprod.getString(3).substring(0, 3) + "VM" + String.format("%05d", part));
                 break;
               case "AUDIO_MOBILE":
                 products.add(i,
+                    rsprod.getString(3).substring(0, 3) + "AM" + String.format("%05d", part));
+                products2.add(
                     rsprod.getString(3).substring(0, 3) + "AM" + String.format("%05d", part));
                 break;
               default:
                 //System.out.println("Error missing ItemType ");
                 break;
             }
-            //System.out.println(products.get(i));
+            System.out.println(products.get(i));
             break;
           } else if (products.size() == i + 1) {
             switch (rsprod.getString(2)) {
               case "VISUAL":
                 products.add(i, rsprod.getString(3).substring(0, 3) + "VI" + "00000");
+                products2.add(rsprod.getString(3).substring(0, 3) + "VI" + "00000");
                 break;
               case "AUDIO":
                 products.add(i, rsprod.getString(3).substring(0, 3) + "AU" + "00000");
+                products2.add(rsprod.getString(3).substring(0, 3) + "AU" + "00000");
                 break;
               case "VISUAL_MOBILE":
                 products.add(i, rsprod.getString(3).substring(0, 3) + "VM" + "00000");
+                products2.add(rsprod.getString(3).substring(0, 3) + "VM" + "00000");
                 break;
               case "AUDIO_MOBILE":
                 products.add(i, rsprod.getString(3).substring(0, 3) + "AM" + "00000");
+                products2.add(rsprod.getString(3).substring(0, 3) + "AM" + "00000");
                 break;
               default:
                 //System.out.println("Error missing ItemType ");
                 break;
             }
-            //System.out.println(products.get(i));
+            System.out.println(products.get(i));
             break;
           }
         }
@@ -236,9 +257,15 @@ public class Controller {
 
       }
 
+      for (int i = 0; products.size() > i; i++) {
+        //System.out.println(products.get(i)+" 9999999999999999999");
+        System.out.println(products2.get(i) + " 888888888");
+
+      }
+
       // test constructor used when creating production records from reading database
       PreparedStatement ps2 = conn.prepareStatement(insertSql2);
-      int numProduced = 3;//cmbQuantity.getValue();  // this will come from the combobox in the UI
+      int numProduced = 3;// cmbQuantity.getValue();  // this will come from the combobox in the UI
       int itemCount = 0;
 
       for (int productionRunProduct = 0; productionRunProduct < numProduced;
@@ -258,11 +285,15 @@ public class Controller {
         productID = pr2.getProductID();
         serialNumber = pr2.getSerialNum(manufacturerName, typeName, itemCount);
         dateProduced = pr2.getProdDate();
+        serialNumber = products.get(productID);
 
         ps2.setInt(1, productionNumber);
         ps2.setInt(2, productID);
-        ps2.setString(3, serialNumber);
-        //ps2.setString(3, products.get(productionNumber)); // remove nulls//in db///
+        //ps2.setString(3, serialNumber);
+        System.out.println(productID);
+        System.out.println(productionNumber);
+
+        ps2.setString(3, products2.get(productionNumber)); // remove nulls//in db///
         ps2.setObject(4, dateProduced);
         itemCount++;
       }
