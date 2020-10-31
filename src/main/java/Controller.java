@@ -171,10 +171,10 @@ public class Controller {
               products.add(0, rsprod.getString(3).substring(0, 3) + "AM" + "00000");
               break;
             default:
-              System.out.println("Error missing ItemType ");
+              //System.out.println("Error missing ItemType ");
               break;
           }
-          System.out.println(products.get(0));
+          //System.out.println(products.get(0));
           j = false;
         }
 
@@ -204,10 +204,10 @@ public class Controller {
                     rsprod.getString(3).substring(0, 3) + "AM" + String.format("%05d", part));
                 break;
               default:
-                System.out.println("Error missing ItemType ");
+                //System.out.println("Error missing ItemType ");
                 break;
             }
-            System.out.println(products.get(i));
+            //System.out.println(products.get(i));
             break;
           } else if (products.size() == i + 1) {
             switch (rsprod.getString(2)) {
@@ -224,10 +224,10 @@ public class Controller {
                 products.add(i, rsprod.getString(3).substring(0, 3) + "AM" + "00000");
                 break;
               default:
-                System.out.println("Error missing ItemType ");
+                //System.out.println("Error missing ItemType ");
                 break;
             }
-            System.out.println(products.get(i));
+            //System.out.println(products.get(i));
             break;
           }
         }
@@ -262,7 +262,7 @@ public class Controller {
         ps2.setInt(1, productionNumber);
         ps2.setInt(2, productID);
         ps2.setString(3, serialNumber);
-        //ps2.setString(3, products.get(productionNumber)); // remove nulls/////////in db///////////
+        //ps2.setString(3, products.get(productionNumber)); // remove nulls//in db///
         ps2.setObject(4, dateProduced);
         itemCount++;
       }
@@ -299,7 +299,7 @@ public class Controller {
                 .add(new ProductInfo(rs.getString(1), rs.getString(3), ItemType.AUDIO_MOBILE));
             break;
           default:
-            System.out.println("Error missing ItemType ");
+            //System.out.println("Error missing ItemType ");
             break;
         }
 
