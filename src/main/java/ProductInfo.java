@@ -6,60 +6,53 @@
  * @date 9/18/20
  */
 
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
+public class ProductInfo extends Product{
 
-public class ProductInfo {
-
-  private final StringProperty name;
-  private final StringProperty type;
-  private final StringProperty manufacturer;
+  private String Name;
+  private ItemType Type;
+  private String Manufacturer;
 
 
   //Default constructor
-  public ProductInfo(String name, String type, String manufacturer) {
-    this.name = new SimpleStringProperty(name);
-    this.type = new SimpleStringProperty(type);
-    this.manufacturer = new SimpleStringProperty(manufacturer);
+   ProductInfo(String name, String manufacturer, ItemType type) {
+    super(name, manufacturer, type);
+     this.Name = name;
+     this.Manufacturer = manufacturer;
+     this.Type = type;
+
   }
 
   //getters
   public String getName() {
-    return name.get();
+    return Name;
   }
 
-  public String getType() {
-    return type.get();
+  public ItemType getType() {
+    return Type;
   }
 
   public String getManufacturer() {
-    return manufacturer.get();
+    return Manufacturer;
+  }
+
+  @Override
+  public int getID() {
+    return 0;
   }
 
   //setters
-  public void setName(String value) {
-    name.set(value);
+  public void setName(String name) {
+    Name = name;
   }
 
-  public void setType(String value) {
-    type.set(value);
+  public void setType(ItemType type) {
+    Type = type;
   }
 
-  public void setManufacturer(String value) {
-    manufacturer.set(value);
+  public void setManufacturer(String manufacturer) {
+    Manufacturer = manufacturer;
   }
 
-  //Property Values
-  public StringProperty nameProperty() {
-    return name;
-  }
 
-  public StringProperty typeProperty() {
-    return type;
-  }
-
-  public StringProperty manufacturerProperty() {
-    return manufacturer;
-  }
 
 }
