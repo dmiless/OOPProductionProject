@@ -11,7 +11,7 @@ This is my main production project for my object oriented course that has greatl
 
 ![Sample GIF](Production_Project_GIF.gif) <br />
 
-![Alpha Progress](AlphaPic.pdf) 
+![Alpha Progress](AlphaPic-1.png) 
 
 ## Documentation
 
@@ -20,14 +20,14 @@ This is my main production project for my object oriented course that has greatl
 
 ## Diagrams
 
-![Alpha Class Diagrams](Alpha.pdf) <br />
-![Alpha Database Diagrams](alphaDatabase.pdf)
-
 Class Diagram <br />
 ![Sample Image](FinalClassDiagrams.JPG)
 Database Diagram <br />
 ![Image 2](FinalDatabaseDiagram.JPG)
- 
+
+![Alpha Class Diagrams](Alpha-1.png) <br />
+![Alpha Database Diagrams](alphaDatabase-1.png)
+
 ## Getting Started
 
 Download the most recent version of Intellij <br />
