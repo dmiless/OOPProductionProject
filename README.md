@@ -11,6 +11,7 @@ This is my main production project for my object oriented course that has greatl
 
 ![Sample GIF](Production_Project_GIF.gif) <br />
 
+Alpha Progress <br />
 ![Alpha Progress](AlphaPic-1.png) 
 
 ## Documentation
@@ -21,12 +22,13 @@ This is my main production project for my object oriented course that has greatl
 ## Diagrams
 
 Class Diagram <br />
-![Sample Image](FinalClassDiagrams.JPG)
+![Sample Image](FinalClassDiagrams.JPG) <br />
 Database Diagram <br />
-![Image 2](FinalDatabaseDiagram.JPG)
+![Image 2](FinalDatabaseDiagram.JPG) <br />
 
-![Alpha Class Diagrams](Alpha-1.png) <br />
-![Alpha Database Diagrams](alphaDatabase-1.png)
+Alpha Diagrams: <br />
+![Alpha Class Diagrams](Alpha-1.png | width=100) <br />
+![Alpha Database Diagrams](alphaDatabase-1.png) <br />
 
 ## Getting Started
 
