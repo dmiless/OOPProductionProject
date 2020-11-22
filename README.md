@@ -9,6 +9,7 @@ I made this as my main project for my COP 3003 class with Professor Vanselow.<br
 ## Demonstration
 
 Gif Coming Soon <br />
+![Sample GIF](Production Project GIF.gif) 
 
 ![Alpha Progress](AlphaPic.pdf) 
 
