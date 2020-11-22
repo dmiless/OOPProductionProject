@@ -21,6 +21,9 @@ Gif Coming Soon <br />
 
 ![Alpha Class Diagrams](Alpha.pdf) <br />
 ![Alpha Database Diagrams](alphaDatabase.pdf)
+
+![Sample Image](FinalClassDiagrams.JPG)
+![Image 2](FinalDatabaseDiagram.JPG)
  
 ## Getting Started
 
