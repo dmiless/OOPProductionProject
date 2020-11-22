@@ -23,7 +23,9 @@ This is my main production project for my object oriented course that has greatl
 ![Alpha Class Diagrams](Alpha.pdf) <br />
 ![Alpha Database Diagrams](alphaDatabase.pdf)
 
+Class Diagram <br />
 ![Sample Image](FinalClassDiagrams.JPG)
+Database Diagram <br />
 ![Image 2](FinalDatabaseDiagram.JPG)
  
 ## Getting Started
