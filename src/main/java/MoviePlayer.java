@@ -1,3 +1,11 @@
+/**
+ * The MoviePlayer class for constructing a new MoviePlayer
+ *
+ * @author Dylan Miles
+ * @extends Product
+ * @implements MultimediaControl
+ * @date 11/18/20
+ */
 public class MoviePlayer extends Product implements MultimediaControl {
 
   private final Screen screen;
@@ -16,7 +24,8 @@ public class MoviePlayer extends Product implements MultimediaControl {
   }
 
   public String toString() {
-    return "Name: " + Name + "\n" + "Manufacturer: " + Manufacturer + "\n" + "Type: " + ItemType.VISUAL
+    return "Name: " + Name + "\n" + "Manufacturer: " + Manufacturer + "\n" + "Type: "
+        + ItemType.VISUAL
         + "\n" + screen + "\n"
         + "Monitor Type: " + monitorType;
   }

@@ -1,3 +1,10 @@
+/**
+ * The Screen class for constructing a new screen.
+ *
+ * @author Dylan Miles
+ * @implements ScreenSpec
+ * @date 11/18/20
+ */
 public class Screen implements ScreenSpec {
 
   private String resolution;
@@ -10,10 +17,12 @@ public class Screen implements ScreenSpec {
     this.refreshRate = RefreshRate;
     this.responseTime = ResponseTime;
   }
+
   public String toString() {
     return "Screen:\n" + "Resolution: " + resolution + "\n" + "Refresh rate: " + refreshRate
         + "\n" + "Response time: " + responseTime;
   }
+
   @Override
   public String getResolution() {
     return resolution;

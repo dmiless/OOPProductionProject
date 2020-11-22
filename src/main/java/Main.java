@@ -5,8 +5,6 @@
  * @date 9/19/20
  */
 
-import java.util.ArrayList;
-import java.util.Date;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -16,16 +14,18 @@ import javafx.stage.Stage;
 public class Main extends Application {
 
   public static void main(String[] args) {
-
     launch(args);
 
   }
 
   @Override
   public void start(Stage primaryStage) throws Exception {
+
     Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
 
-    Scene scene = new Scene(root, 500, 650);
+    root.setStyle("-fx-background-color: #a1f4f7;");
+
+    Scene scene = new Scene(root, 650, 650);
 
     primaryStage.setTitle("OOP Production Project");
     primaryStage.setScene(scene);

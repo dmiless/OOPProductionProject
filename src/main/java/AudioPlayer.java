@@ -1,3 +1,11 @@
+/**
+ * The AudioPlayer class for constructing an AudioPlayer.
+ *
+ * @author Dylan Miles
+ * @extends Product
+ * @implements MulitmediaControl
+ * @date 11/18/20
+ */
 public class AudioPlayer extends Product implements MultimediaControl {
 
   private String supportedAudioFormats;
