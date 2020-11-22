@@ -1,10 +1,10 @@
 # OOP Production Project
 
-This JavaFX project allows the user to input data in a GUI so that it is saved inside a database.<br />
-I created this project in my Object Oriented class by myself and am releasing it's Beta version.<br />
-I have been working on this project for 5 weeks and this is the Beta version after completing Sprint 2.<br />
-This assignment has challenged me in using a GUI and taking the input to be used in a database.<br />
-I made this as my main project for my COP 3003 class with Professor Vanselow.<br />
+This JavaFX project is a GUI program that allows the user to input data in text fields that are then saved inside the database then produces back to the screen.<br />
+I created this project in my object oriented class independently and am releasing it's Final version.<br />
+I have been working on this project in COP 3003 for the Fall 2020 semester<br />
+This assignment has challenged me in using a GUI and taking the input to be used in a database as well as working with a number of different classes together.<br />
+This is my main production project for my object oriented course that has greatly expanded my knowledge of object oriented programming.<br />
 
 ## Demonstration
 
@@ -27,7 +27,10 @@ Gif Coming Soon <br />
  
 ## Getting Started
 
-Coming Soon <br />
+Download the most recent version of Intellij <br />
+Select 'Get from version control' once Intellij starts <br />
+Copy and paste this project's github URL and clone the project <br />
+This should load the most recent version to edit/run <br />
 
 ## Built With
 
@@ -53,11 +56,13 @@ This project is licensed under the MIT License.
 * Special thanks to Professor Vanselow, Jeremy, and Vlad 
 
 ## History
-
+Sprint 1 (Alpha) - 9/19/20
+Sprint 2 (Beta) - 10/31/20
+Sprint 3 (Release) - 12/2/20
 I originally had many iterations of this project on github, yet I named my orignal project incorrectly so I created a new project for the submittion of Sprint 1 (Alpha).
 
 ## Key Programming Concepts Utilized
 
-I learned a lot about linking a database to my code to make it functional. I also learned a lot about SceneBuilder and the power that it has to create a GUI that works along side my project. 
-I will continue to learn more and grow this project fully. 
+I learned a lot about linking a database to my code to make it functional. I also learned a lot about SceneBuilder and the power that it has to create a GUI that works along side my project. This also expanded my knowledge on using many different types of classes with one another to produce one larger program. 
+
 
