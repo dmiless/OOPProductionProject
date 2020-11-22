@@ -1,9 +1,8 @@
 /**
  * The abstract Product class for defining the attributes Product and constructing together
+ * implements Item
  *
  * @author Dylan Miles
- * @implements Item
- * @date 11/15/20
  */
 
 

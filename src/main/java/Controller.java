@@ -1,8 +1,8 @@
 /**
- * The controller class for adding new product info from GUI into database. Sprint 2 (Beta)
+ * The controller class for adding new product info from GUI into database and displaying back to
+ * GUI.
  *
  * @author Dylan Miles
- * @date 10/31/20
  */
 
 import javafx.collections.FXCollections;
@@ -210,8 +210,8 @@ public class Controller {
   /**
    * Initializes the database with previous data fills ItemType boxes with data options also allows
    * user to enter their own values
-   *
-   * @returns void
+   * <p>
+   * returns void
    */
   public void initialize() {
 
@@ -238,8 +238,7 @@ public class Controller {
    * Connects program to the database Gets and inserts user data from boxes to database also
    * retrieves certain data depending on the direction
    *
-   * @param direction - to define what is required with the databases
-   * @returns void
+   * @param direction - to define what is required with the databases returns void
    */
   public void connectToDb(int direction) {
     final String JDBC_DRIVER = "org.h2.Driver";
@@ -347,8 +346,8 @@ public class Controller {
 
   /**
    * updateTxt method to update the textarea of proLog with recorded records in productionRun
-   *
-   * @returns void
+   * <p>
+   * returns void
    */
   public void updateTxt() {
 
@@ -374,8 +373,7 @@ public class Controller {
    * The loadName method for setting the product name from the product's ID
    *
    * @param productID - ID from the product
-   * @param record    - the instance of the ProductionRecord class
-   * @returns void
+   * @param record    - the instance of the ProductionRecord class returns void
    */
   public void loadName(int productID, ProductionRecord record) {
 
@@ -390,8 +388,8 @@ public class Controller {
   /**
    * setupTable method to set up the columns of produce tab and set the items of productLine to both
    * tableView + listView.
-   *
-   * @returns void
+   * <p>
+   * returns void
    */
   public void setupTable() {
     colProduct.setCellValueFactory(new PropertyValueFactory("Name"));

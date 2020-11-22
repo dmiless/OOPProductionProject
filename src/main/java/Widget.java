@@ -1,8 +1,5 @@
 /**
- * The Widget class used for adding a new product
- *
- * @extends Product
- * @date 11/18/20
+ * The Widget class used for adding a new product extends Product
  */
 public class Widget extends Product {
 

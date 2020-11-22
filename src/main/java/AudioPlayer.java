@@ -1,10 +1,8 @@
 /**
- * The AudioPlayer class for constructing an AudioPlayer.
+ * The AudioPlayer class for constructing an AudioPlayer extends Product implements
+ * MulitmediaControl
  *
  * @author Dylan Miles
- * @extends Product
- * @implements MulitmediaControl
- * @date 11/18/20
  */
 public class AudioPlayer extends Product implements MultimediaControl {
 

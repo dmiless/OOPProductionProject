@@ -2,7 +2,6 @@
  * The Item interface class for adding a new item
  *
  * @author Dylan Miles
- * @date 11/15/20
  */
 public interface Item {
 

@@ -1,8 +1,7 @@
 /**
- * The ProductionRecord class for adding new product info from GUI pass back.
+ * The ProductionRecord class for adding new product info from GUI and pass back to display data.
  *
  * @author Dylan Miles
- * @date 11/18/20
  */
 
 import java.util.Date;
@@ -59,7 +58,7 @@ public class ProductionRecord {
    * @param manufacturer - to take first 3 letters of manufacturer
    * @param type         - check the item type to increment
    * @param prodCount    - increase the count of item type
-   * @returns String - constructed serial number
+   * @return String - fully constructed serial number
    */
   public String getSerialNum(String manufacturer, ItemType type,
       int prodCount) {
@@ -81,10 +80,10 @@ public class ProductionRecord {
   /**
    * ProductionRecord constructor to construct the new data from the passed information
    *
-   * @param productionNumber
-   * @param productID
-   * @param serialNumber
-   * @param dateProduced
+   * @param productionNumber - production number
+   * @param productID        - product ID
+   * @param serialNumber     - serial number
+   * @param dateProduced     - date produced
    */
   public ProductionRecord(int productionNumber, int productID,
       String serialNumber, Date dateProduced) {

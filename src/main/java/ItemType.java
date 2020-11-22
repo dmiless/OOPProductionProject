@@ -2,7 +2,6 @@
  * The ItemType enum class for setting the product's type
  *
  * @author Dylan Miles
- * @date 11/18/20
  */
 public enum ItemType {
 
@@ -29,7 +28,7 @@ public enum ItemType {
   /**
    * SetItemType method to compare and return passed in string with matching ItemTypes
    *
-   * @param code
+   * @param code - passed in itemType code
    * @return ItemType
    */
   public static ItemType setItemType(String code) {

@@ -1,10 +1,8 @@
 /**
- * The MoviePlayer class for constructing a new MoviePlayer
+ * The MoviePlayer class for constructing a new MoviePlayer extends Product implements
+ * MultimediaControl
  *
  * @author Dylan Miles
- * @extends Product
- * @implements MultimediaControl
- * @date 11/18/20
  */
 public class MoviePlayer extends Product implements MultimediaControl {
 

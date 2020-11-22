@@ -1,9 +1,7 @@
 /**
  * The Screen class for constructing a new screen.
  *
- * @author Dylan Miles
- * @implements ScreenSpec
- * @date 11/18/20
+ * @author Dylan Miles implements ScreenSpec
  */
 public class Screen implements ScreenSpec {
 
