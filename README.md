@@ -12,7 +12,7 @@ This is my main production project for my object oriented course that has greatl
 ![Sample GIF](Production_Project_GIF.gif) <br />
 
 Alpha Progress <br />
-![Alpha Progress](AlphaPic-1.png) 
+<img src="AlphaPic-1.png" height="50%" width="50%">
 
 ## Documentation
 
@@ -27,8 +27,10 @@ Database Diagram <br />
 ![Image 2](FinalDatabaseDiagram.JPG) <br />
 
 Alpha Diagrams: <br />
-![Alpha Class Diagrams](Alpha-1.png | width=100) <br />
-![Alpha Database Diagrams](alphaDatabase-1.png) <br />
+<br />
+<img src="Alpha-1.png" height="50%" width="50%">
+<br />
+<img src="alphaDatabase-1.png" height="50%" width="50%">
 
 ## Getting Started
 
