@@ -8,7 +8,7 @@ This is my main production project for my object oriented course that has greatl
 
 ## Demonstration
 
-Gif Coming Soon <br />
+
 ![Sample GIF](Production_Project_GIF.gif) <br />
 
 ![Alpha Progress](AlphaPic.pdf) 
@@ -16,7 +16,7 @@ Gif Coming Soon <br />
 ## Documentation
 
 [JavaDoc](https://dmiless.github.io/OOPProductionProject/index.html)
-[JavaDoc](docs/index.html)
+
 
 ## Diagrams
 
