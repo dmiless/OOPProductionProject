@@ -56,9 +56,9 @@ This project is licensed under the MIT License.
 * Special thanks to Professor Vanselow, Jeremy, and Vlad 
 
 ## History
-Sprint 1 (Alpha) - 9/19/20
-Sprint 2 (Beta) - 10/31/20
-Sprint 3 (Release) - 12/2/20
+Sprint 1 (Alpha) - 9/19/20 <br />
+Sprint 2 (Beta) - 10/31/20 <br />
+Sprint 3 (Release) - 12/2/20 <br />
 I originally had many iterations of this project on github, yet I named my orignal project incorrectly so I created a new project for the submittion of Sprint 1 (Alpha).
 
 ## Key Programming Concepts Utilized
