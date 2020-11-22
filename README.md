@@ -15,8 +15,8 @@ Gif Coming Soon <br />
 
 ## Documentation
 
+[JavaDoc](https://dmiless.github.io/OOPProductionProject/index.html)
 [JavaDoc](docs/index.html)
-[JavaDoc](docs/index.html
 
 ## Diagrams
 
