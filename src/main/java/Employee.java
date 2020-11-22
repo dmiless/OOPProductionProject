@@ -1,7 +1,7 @@
-/**
- * The employee class for adding new employee info from GUI into program.
- *
- * @author Dylan Miles
+/*
+  The employee class for adding new employee info from GUI into program.
+
+  @author Dylan Miles
  * @date 11/15/20
  */
 
@@ -28,7 +28,13 @@ public class Employee {
   private String password;
 
   private String email;
-
+  /**
+   * Main constructor for Employee class.
+   *
+   * @param fullName - full name of employee
+   *
+   * @param password - password of employee
+   */
   public Employee(String fullName, String password) {
 
     if (checkName(fullName)) {
@@ -57,6 +63,9 @@ public class Employee {
 
   }
 
+  /**
+   * toString method of employee class to display class data.
+   */
   @Override
   public String toString() {
 
@@ -65,13 +74,6 @@ public class Employee {
         + "Username : " + username + "\n"
         + "Email : " + email + "\n"
         + "Initial Password : " + password;
-  }
-
-  public String reverseString(String pw) {
-    String codedPW = pw;
-    codedPW.substring(1, 2);
-
-    return codedPW;
   }
 
   public void setPassword(String password) {

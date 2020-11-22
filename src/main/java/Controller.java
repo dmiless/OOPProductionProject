@@ -1,21 +1,33 @@
-/**
+/*
  * The controller class for adding new product info from GUI into database and displaying back to
  * GUI.
  *
  * @author Dylan Miles
  */
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.sql.Timestamp;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.MouseEvent;
+import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 
-import java.sql.*;
+
 
 
 public class Controller {
@@ -120,7 +132,7 @@ public class Controller {
 
   /**
    * addEmployee method that takes in quantity user input from GUI then adds the new data to
-   * employeeList as long as input is not empty
+   * employeeList as long as input is not empty.
    *
    * @param event - button action event
    * @returns void
@@ -142,7 +154,7 @@ public class Controller {
 
   /**
    * addProduct method that takes in quantity user input from GUI then adds the new data to
-   * productLine as long as input is not empty
+   * productLine as long as input is not empty.
    *
    * @param event - button action event
    * @returns void
@@ -170,11 +182,11 @@ public class Controller {
   /**
    * The int Quantity to hold the amount of items produced from cmbQuantity.
    */
-  private int Quantity = 0;
+  private int quantity = 0;
 
   /**
    * recordProduction method that takes in quantity user input from GUI then adds the new data to
-   * productionRun
+   * productionRun.
    *
    * @param event - button action event
    * @returns void
@@ -183,8 +195,8 @@ public class Controller {
   void recordProduction(ActionEvent event) {
 
     try {
-      Quantity = Integer.parseInt(cmbQuantity.getValue());
-      for (int productMade = 0; productMade < Quantity; productMade++) {
+      quantity = Integer.parseInt(cmbQuantity.getValue());
+      for (int productMade = 0; productMade < quantity; productMade++) {
 
         ObservableList<Product> topics;
         topics = listView.getSelectionModel().getSelectedItems();
@@ -209,9 +221,7 @@ public class Controller {
 
   /**
    * Initializes the database with previous data fills ItemType boxes with data options also allows
-   * user to enter their own values
-   * <p>
-   * returns void
+   * user to enter their own values.
    */
   public void initialize() {
 
@@ -236,17 +246,17 @@ public class Controller {
 
   /**
    * Connects program to the database Gets and inserts user data from boxes to database also
-   * retrieves certain data depending on the direction
+   * retrieves certain data depending on the direction.
    *
    * @param direction - to define what is required with the databases returns void
    */
   public void connectToDb(int direction) {
-    final String JDBC_DRIVER = "org.h2.Driver";
-    final String DB_URL = "jdbc:h2:./res/HR";
+    final String jdbc_Driver = "org.h2.Driver";
+    final String db_url = "jdbc:h2:./res/HR";
 
     //  Database credentials
-    final String USER = ""; // empty database password
-    final String PASS = "";
+    final String user = ""; // empty database password
+    final String pass = "";
     Connection conn = null;
     Statement stmt = null;
     PreparedStatement ps;
@@ -255,10 +265,10 @@ public class Controller {
 
     try {
       // STEP 1: Register JDBC driver
-      Class.forName(JDBC_DRIVER);
+      Class.forName(jdbc_Driver);
 
       //STEP 2: Open a connection
-      conn = DriverManager.getConnection(DB_URL, USER, PASS); // no password set - not secure
+      conn = DriverManager.getConnection(db_url, user, pass); // no password set - not secure
 
       //STEP 3: Execute a query
       stmt = conn.createStatement();
@@ -266,8 +276,8 @@ public class Controller {
       //getting user input from the txt boxes
       if (direction == 0 && !emptyFields) {
         //inserting user input to database
-        sql = "INSERT INTO PRODUCT(name, type, manufacturer)" +
-            " VALUES (?, ?, ?)";
+        sql = "INSERT INTO PRODUCT(name, type, manufacturer)"
+            + " VALUES (?, ?, ?)";
         ps = conn.prepareStatement(sql);
         ps.setString(1, txtProductName.getText());
         ps.setString(2, String.valueOf(cbItemType.getValue()));
@@ -278,14 +288,14 @@ public class Controller {
       } else if (direction == 1) {
         //inserting user input to database
         sql =
-            "INSERT INTO PRODUCTIONRECORD(PRODUCTION_NUM, PRODUCT_ID, SERIAL_NUM, DATE_PRODUCED)" +
-                " VALUES (?, ?, ?, ?)";
+            "INSERT INTO PRODUCTIONRECORD(PRODUCTION_NUM, PRODUCT_ID, SERIAL_NUM, DATE_PRODUCED)"
+                + " VALUES (?, ?, ?, ?)";
 
         ProductionRecord record = productionRun.get(productionRun.size() - 1);
         ps = conn.prepareStatement(sql);
 
         ps.setInt(1, createdProducts - 1);
-        ps.setInt(2, record.getProductID());
+        ps.setInt(2, record.getProductid());
         ps.setString(3, record.getSerialNum());
         ps.setTimestamp(4, new Timestamp(record.getProdDate().getTime()));
 
@@ -317,7 +327,7 @@ public class Controller {
           }
 
           //set the name of the item to be displayed from the productID
-          loadName(record.getProductID(), record);
+          loadName(record.getProductid(), record);
 
           productionRun.add(record);
 
@@ -340,27 +350,25 @@ public class Controller {
   }
 
   /**
-   * The boolean expression to update the txt areas once during initialization
+   * The boolean expression to update the txt areas once during initialization.
    */
   boolean once = true;
 
   /**
-   * updateTxt method to update the textarea of proLog with recorded records in productionRun
-   * <p>
-   * returns void
+   * updateTxt method to update the textarea of proLog with recorded records in productionRun.
    */
   public void updateTxt() {
 
     if (once) {
-      for (ProductionRecord Record : productionRun) {
-        proLog.appendText(Record + "\n");
+      for (ProductionRecord record : productionRun) {
+        proLog.appendText(record + "\n");
         once = false;
       }
     } else {
       int i = 0;
-      for (ProductionRecord Record : productionRun) {
+      for (ProductionRecord record : productionRun) {
         if (i++ == productionRun.size() - 1) {
-          proLog.appendText(Record + "\n");
+          proLog.appendText(record + "\n");
           once = false;
         }
 
@@ -370,15 +378,15 @@ public class Controller {
   }
 
   /**
-   * The loadName method for setting the product name from the product's ID
+   * The loadName method for setting the product name from the product's ID.
    *
-   * @param productID - ID from the product
+   * @param productid - ID from the product
    * @param record    - the instance of the ProductionRecord class returns void
    */
-  public void loadName(int productID, ProductionRecord record) {
+  public void loadName(int productid, ProductionRecord record) {
 
     for (int j = 0; j < productLine.size(); j++) {
-      if (productLine.get(j).getId() == productID) {
+      if (productLine.get(j).getId() == productid) {
         record.setProductName(productLine.get(j).getName());
         break; // break once name is found
       }
@@ -388,8 +396,6 @@ public class Controller {
   /**
    * setupTable method to set up the columns of produce tab and set the items of productLine to both
    * tableView + listView.
-   * <p>
-   * returns void
    */
   public void setupTable() {
     colProduct.setCellValueFactory(new PropertyValueFactory("Name"));

@@ -1,4 +1,4 @@
-/**
+/*
  * The ProductionRecord class for adding new product info from GUI and pass back to display data.
  *
  * @author Dylan Miles
@@ -15,7 +15,7 @@ public class ProductionRecord {
   /**
    * the int to hold the product ID of the product.
    */
-  private int productID;
+  private int productid;
   /**
    * the String to hold the serialNumber of the product.
    */
@@ -34,26 +34,26 @@ public class ProductionRecord {
   private String productName;
 
   /**
-   * ProductionRecord constructor to construct the new data from the passed information
+   * ProductionRecord constructor to construct the new data from the passed information.
    *
-   * @param Product   - Product class passed to access that info
+   * @param product   - product class passed to access that info
    * @param prodCount - count of products
    */
-  public ProductionRecord(Product Product, int prodCount) {
+  public ProductionRecord(Product product, int prodCount) {
     this.prodCount = prodCount;
     this.productionNumber = prodCount;
-    this.productID = Product.getId();
-    this.serialNumber = getSerialNum(Product.getManufacturer(),
-        Product.getType(), prodCount);
+    this.productid = product.getId();
+    this.serialNumber = getSerialNum(product.getManufacturer(),
+        product.getType(), prodCount);
     this.dateProduced = new Date();
-    this.productName = Product.getName();
+    this.productName = product.getName();
 
 
   }
 
   /**
    * getSerialNum method to set the serial number from the passed arguments and increment the count
-   * of audio/visual
+   * of audio/visual.
    *
    * @param manufacturer - to take first 3 letters of manufacturer
    * @param type         - check the item type to increment
@@ -73,29 +73,38 @@ public class ProductionRecord {
       prodCount = Controller.visualCount;
     }
 
-    return manufacturer.substring(0, 3) + type.label +
-        String.format("%05d", prodCount);
+    return manufacturer.substring(0, 3) + type.label
+        + String.format("%05d", prodCount);
   }
 
   /**
-   * ProductionRecord constructor to construct the new data from the passed information
+   * Gets the serialNumber of this product.
+   *
+   * @return this Product's serialNumber.
+   */
+  public String getSerialNum() {
+    return serialNumber;
+  }
+
+  /**
+   * ProductionRecord constructor to construct the new data from the passed information.
    *
    * @param productionNumber - production number
-   * @param productID        - product ID
+   * @param productid        - product ID
    * @param serialNumber     - serial number
    * @param dateProduced     - date produced
    */
-  public ProductionRecord(int productionNumber, int productID,
+  public ProductionRecord(int productionNumber, int productid,
       String serialNumber, Date dateProduced) {
     this.productionNumber = productionNumber;
-    this.productID = productID;
+    this.productid = productid;
     this.serialNumber = serialNumber;
     this.dateProduced = new Date(dateProduced.getTime());
     this.productName = getProductName();
   }
 
   /**
-   * toString to display the ProductionRecord's information
+   * toString to display the ProductionRecord's information.
    */
   public String toString() {
     return "Product Num: " + productionNumber + " Product Name: " + productName
@@ -105,7 +114,7 @@ public class ProductionRecord {
   //getters
 
   /**
-   * Gets the productionNumber of this product
+   * Gets the productionNumber of this product.
    *
    * @return this Product's productionNumber.
    */
@@ -114,25 +123,16 @@ public class ProductionRecord {
   }
 
   /**
-   * Gets the productID of this product
+   * Gets the productID of this product.
    *
    * @return this Product's productID.
    */
-  public int getProductID() {
-    return productID;
+  public int getProductid() {
+    return productid;
   }
 
   /**
-   * Gets the serialNumber of this product
-   *
-   * @return this Product's serialNumber.
-   */
-  public String getSerialNum() {
-    return serialNumber;
-  }
-
-  /**
-   * Gets the date of this product
+   * Gets the date of this product.
    *
    * @return this Product's date.
    */
@@ -141,7 +141,7 @@ public class ProductionRecord {
   }
 
   /**
-   * Gets the name of this product
+   * Gets the name of this product.
    *
    * @return this Product's name.
    */
@@ -163,10 +163,10 @@ public class ProductionRecord {
   /**
    * Sets the productID of this Product.
    *
-   * @param productID This Product's new ID.
+   * @param productid This Product's new ID.
    */
-  public void setProductID(int productID) {
-    this.productID = productID;
+  public void setProductid(int productid) {
+    this.productid = productid;
   }
 
   /**

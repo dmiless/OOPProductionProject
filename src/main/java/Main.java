@@ -1,4 +1,4 @@
-/**
+/*
  * Main class including start method that starts the program. Sets the scene for project.
  *
  * @author Dylan Miles

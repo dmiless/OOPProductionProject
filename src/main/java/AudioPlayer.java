@@ -1,6 +1,6 @@
 /**
  * The AudioPlayer class for constructing an AudioPlayer extends Product implements
- * MulitmediaControl
+ * MulitmediaControl.
  *
  * @author Dylan Miles
  */
@@ -9,8 +9,8 @@ public class AudioPlayer extends Product implements MultimediaControl {
   private String supportedAudioFormats;
   private String supportedPlaylistFormats;
   private ItemType mediaType;
-  private String Manufacturer;
-  private String Name;
+  private String manufacturer;
+  private String name;
 
   AudioPlayer(String name, String manufacturer, String supportedAudioFormats,
       String supportedPlaylistFormats) {
@@ -18,12 +18,15 @@ public class AudioPlayer extends Product implements MultimediaControl {
     mediaType = ItemType.AUDIO;
     this.supportedAudioFormats = supportedAudioFormats;
     this.supportedPlaylistFormats = supportedPlaylistFormats;
-    this.Name = name;
-    this.Manufacturer = manufacturer;
+    this.name = name;
+    this.manufacturer = manufacturer;
   }
 
+  /**
+   * toString method for AudioPlayer class to display class info.
+   */
   public String toString() {
-    return "Name: " + Name + "\n" + "Manufacturer: " + Manufacturer + "\n" + "Type: " + mediaType
+    return "Name: " + name + "\n" + "Manufacturer: " + manufacturer + "\n" + "Type: " + mediaType
         + "\n" + "Supported Audio Formats: " + supportedAudioFormats + "\n"
         + "Supported Playlist Formats: " + supportedPlaylistFormats;
   }
