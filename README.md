@@ -16,6 +16,7 @@ Gif Coming Soon <br />
 ## Documentation
 
 [JavaDoc](docs/index.html)
+[JavaDoc](docs/index.html
 
 ## Diagrams
 
