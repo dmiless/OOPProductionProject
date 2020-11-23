@@ -1,16 +1,16 @@
 /**
  * The AudioPlayer class for constructing an AudioPlayer extends Product implements
- * MulitmediaControl.
+ * MultimediaControl.
  *
  * @author Dylan Miles
  */
 public class AudioPlayer extends Product implements MultimediaControl {
 
-  private String supportedAudioFormats;
-  private String supportedPlaylistFormats;
-  private ItemType mediaType;
-  private String manufacturer;
-  private String name;
+  private final String supportedAudioFormats;
+  private final String supportedPlaylistFormats;
+  private final ItemType mediaType;
+  private final String manufacturer;
+  private final String name;
 
   AudioPlayer(String name, String manufacturer, String supportedAudioFormats,
       String supportedPlaylistFormats) {
@@ -32,7 +32,7 @@ public class AudioPlayer extends Product implements MultimediaControl {
   }
 
   @Override
-  public int getID() {
+  public int getid() {
     return 0;
   }
 

@@ -32,16 +32,18 @@ public enum ItemType {
    * @return ItemType
    */
   public static ItemType setItemType(String code) {
-    if (code.equals("AUDIO")) {
-      return ItemType.AUDIO;
-    } else if (code.equals("VISUAL")) {
-      return ItemType.VISUAL;
-    } else if (code.equals("AUDIO_MOBILE")) {
-      return ItemType.AUDIO_MOBILE;
-    } else if (code.equals("VISUAL_MOBILE")) {
-      return ItemType.VISUAL_MOBILE;
-    } else {
-      System.out.println("Invalid ItemType");
+    switch (code) {
+      case "AUDIO":
+        return ItemType.AUDIO;
+      case "VISUAL":
+        return ItemType.VISUAL;
+      case "AUDIO_MOBILE":
+        return ItemType.AUDIO_MOBILE;
+      case "VISUAL_MOBILE":
+        return ItemType.VISUAL_MOBILE;
+      default:
+        System.out.println("Invalid ItemType");
+        break;
     }
     return ItemType.AUDIO;
   }

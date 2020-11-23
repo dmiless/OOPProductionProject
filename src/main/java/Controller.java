@@ -1,10 +1,3 @@
-/*
- * The controller class for adding new product info from GUI into database and displaying back to
- * GUI.
- *
- * @author Dylan Miles
- */
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -14,9 +7,7 @@ import java.sql.Statement;
 import java.sql.Timestamp;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
@@ -25,9 +16,14 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.MouseEvent;
 
 
+/**
+ * The controller class for adding new product info from GUI into database and displaying back to
+ * GUI.
+ *
+ * @author Dylan Miles
+ */
 public class Controller {
 
   /**
@@ -49,15 +45,16 @@ public class Controller {
   /**
    * The ObservableList to hold the list of created products.
    */
-  private ObservableList<Product> productLine = FXCollections.observableArrayList();
+  private final ObservableList<Product> productLine = FXCollections.observableArrayList();
   /**
    * The ObservableList to hold the list of created product records.
    */
-  private ObservableList<ProductionRecord> productionRun = FXCollections.observableArrayList();
+  private final ObservableList<ProductionRecord> productionRun
+      = FXCollections.observableArrayList();
   /**
    * The ObservableList to hold the list of employees created.
    */
-  private ObservableList<Employee> employeeList = FXCollections.observableArrayList();
+  private final ObservableList<Employee> employeeList = FXCollections.observableArrayList();
 
   /**
    * The txtField to hold the product's name from UI.
@@ -93,7 +90,7 @@ public class Controller {
    * The TableColumn to set column to the manufacturer's name.
    */
   @FXML
-  private TableColumn<?, Product> colManu;
+  private TableColumn<?, Product> colManufacturer;
   /**
    * The TableColumn to set column to the product's ItemType.
    */
@@ -111,12 +108,10 @@ public class Controller {
   private TextArea proLog;
 
   @FXML
-  void btnItemType(MouseEvent event) {
+  void btnItemType() {
 
   }
 
-  @FXML
-  private Button btnAddEmployee;
   /**
    * The TextField to get employee UserName from user input.
    */
@@ -131,12 +126,9 @@ public class Controller {
   /**
    * addEmployee method that takes in quantity user input from GUI then adds the new data to
    * employeeList as long as input is not empty.
-   *
-   * @param event - button action event
-   * @returns void
    */
   @FXML
-  void addEmployee(ActionEvent event) {
+  void addEmployee() {
     if (!(txtUserName.getText().equals("")) && !txtPassword.getText().equals("")) {
       emptyFields = false;
       employeeList.add(new Employee(txtUserName.getText(), txtPassword.getText()));
@@ -153,12 +145,9 @@ public class Controller {
   /**
    * addProduct method that takes in quantity user input from GUI then adds the new data to
    * productLine as long as input is not empty.
-   *
-   * @param event - button action event
-   * @returns void
    */
   @FXML
-  void addProduct(ActionEvent event) {
+  void addProduct() {
     //when button is clicked, connect to database and add products from txtFields
     if (!(txtProductName.getText().equals("")) && !(txtManufacturerName.getText().equals(""))
         && !(cbItemType.getValue() == null)) {
@@ -178,20 +167,12 @@ public class Controller {
   }
 
   /**
-   * The int Quantity to hold the amount of items produced from cmbQuantity.
-   */
-  private int quantity = 0;
-
-  /**
    * recordProduction method that takes in quantity user input from GUI then adds the new data to
    * productionRun.
-   *
-   * @param event - button action event
-   * @returns void
    */
   @FXML
-  void recordProduction(ActionEvent event) {
-
+  void recordProduction() {
+    int quantity;
     try {
       quantity = Integer.parseInt(cmbQuantity.getValue());
       for (int productMade = 0; productMade < quantity; productMade++) {
@@ -255,8 +236,8 @@ public class Controller {
     //  Database credentials
     final String user = ""; // empty database password
     final String pass = "";
-    Connection conn = null;
-    Statement stmt = null;
+    Connection conn;
+    Statement stmt;
     PreparedStatement ps;
     ResultSet rs;
     String sql;
@@ -293,7 +274,7 @@ public class Controller {
         ps = conn.prepareStatement(sql);
 
         ps.setInt(1, createdProducts - 1);
-        ps.setInt(2, record.getProductid());
+        ps.setInt(2, record.getProductId());
         ps.setString(3, record.getSerialNum());
         ps.setTimestamp(4, new Timestamp(record.getProdDate().getTime()));
 
@@ -325,7 +306,7 @@ public class Controller {
           }
 
           //set the name of the item to be displayed from the productID
-          loadName(record.getProductid(), record);
+          loadName(record.getProductId(), record);
 
           productionRun.add(record);
 
@@ -339,11 +320,9 @@ public class Controller {
       stmt.close(); //should close out of the database
       conn.close(); //close out connection
 
-    } catch (ClassNotFoundException e) {
+    } catch (ClassNotFoundException | SQLException e) {
       e.printStackTrace();
 
-    } catch (SQLException e) {
-      e.printStackTrace();
     }
   }
 
@@ -378,14 +357,14 @@ public class Controller {
   /**
    * The loadName method for setting the product name from the product's ID.
    *
-   * @param productid - ID from the product
+   * @param productId - ID from the product
    * @param record    - the instance of the ProductionRecord class returns void
    */
-  public void loadName(int productid, ProductionRecord record) {
+  public void loadName(int productId, ProductionRecord record) {
 
-    for (int j = 0; j < productLine.size(); j++) {
-      if (productLine.get(j).getId() == productid) {
-        record.setProductName(productLine.get(j).getName());
+    for (Product product : productLine) {
+      if (product.getId() == productId) {
+        record.setProductName(product.getName());
         break; // break once name is found
       }
     }
@@ -397,7 +376,7 @@ public class Controller {
    */
   public void setupTable() {
     colProduct.setCellValueFactory(new PropertyValueFactory("Name"));
-    colManu.setCellValueFactory(new PropertyValueFactory("Manufacturer"));
+    colManufacturer.setCellValueFactory(new PropertyValueFactory("Manufacturer"));
     colType.setCellValueFactory(new PropertyValueFactory("Type"));
 
     //set items in both tableView and listView from the productLine

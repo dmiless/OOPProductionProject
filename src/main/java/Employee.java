@@ -1,13 +1,11 @@
-/*
- * The employee class for adding new employee info from GUI into program.
- *
- * @author Dylan Miles
- */
-
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-
+/**
+ * The employee class for adding new employee login info from GUI into program.
+ *
+ * @author Dylan Miles
+ */
 public class Employee {
 
   private static final String EMAIL_SUFFIX = "@oracleacademy.Test";
@@ -20,7 +18,7 @@ public class Employee {
 
   private static final Pattern OTHER_PATTERN = Pattern.compile("[^a-zA-Z0-9]+");
 
-  private String name;
+  private final String name;
 
   private String username;
 
@@ -53,6 +51,7 @@ public class Employee {
     }
 
     if (isValidPassword(password)) {
+      reverseString(password);
       setPassword(password);
     } else {
       System.out.println("Invalid Password: Required to contain "
@@ -75,6 +74,22 @@ public class Employee {
         + "Initial Password : " + password;
   }
 
+  /**
+   * reverseString method of employee class to reverse the password entered.
+   *
+   * @param pw - password passed in normally from GUI
+   * @return encrypted password returned
+   */
+  public static String reverseString(String pw) {
+    if (pw.isEmpty()) {
+      System.out.println("String in now Empty");
+      return pw;
+    }
+    //Calling Function Recursively
+    System.out.println("String to be passed: " + pw.substring(1));
+    return reverseString(pw.substring(1)) + pw.charAt(0);
+  }
+
   public void setPassword(String password) {
 
     this.password = password;
@@ -84,11 +99,7 @@ public class Employee {
 
     Matcher nameMatch = INVALID_PATTERN.matcher(name);
 
-    if (name.contains(" ") && !nameMatch.find()) {
-      return true;
-    } else {
-      return false;
-    }
+    return name.contains(" ") && !nameMatch.find();
   }
 
   private boolean isValidPassword(String password) {
@@ -102,7 +113,7 @@ public class Employee {
 
   private void setUsername(String firstName, String lastName) {
 
-    this.username = firstName.toLowerCase().substring(0, 1) + lastName.toLowerCase();
+    this.username = firstName.toLowerCase().charAt(0) + lastName.toLowerCase();
   }
 
   private void setEmail(String firstName, String lastName) {

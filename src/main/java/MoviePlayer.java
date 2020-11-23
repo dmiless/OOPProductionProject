@@ -8,8 +8,8 @@ public class MoviePlayer extends Product implements MultimediaControl {
 
   private final Screen screen;
   private final MonitorType monitorType;
-  private String name;
-  private String manufacturer;
+  private final String name;
+  private final String manufacturer;
 
   MoviePlayer(String name, String manufacturer, Screen screen, MonitorType monitorType) {
 
@@ -32,7 +32,7 @@ public class MoviePlayer extends Product implements MultimediaControl {
   }
 
   @Override
-  public int getID() {
+  public int getid() {
     return 0;
   }
 

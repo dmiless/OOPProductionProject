@@ -62,7 +62,7 @@
                         <TableView fx:id="tableView" layoutX="47.0" layoutY="256.0" prefHeight="355.0" prefWidth="557.0">
                             <columns>
                                 <TableColumn fx:id="colProduct" prefWidth="192.0" text="Product Name" />
-                                <TableColumn fx:id="colManu" prefWidth="208.0" text="Manufacturer" />
+                                <TableColumn fx:id="colManufacturer" prefWidth="208.0" text="Manufacturer" />
                         <TableColumn fx:id="colType" prefWidth="154.0" text="Item Type" />
                             </columns>
                         </TableView>

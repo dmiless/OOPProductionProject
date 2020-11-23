@@ -1,15 +1,14 @@
-/*
- * Main class including start method that starts the program. Sets the scene for project.
- *
- * @author Dylan Miles
- */
-
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+/**
+ * The Main class including start method that starts the program. Sets the scene for project.
+ *
+ * @author Dylan Miles
+ */
 public class Main extends Application {
 
   public static void main(String[] args) {
