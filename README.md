@@ -16,7 +16,6 @@ Alpha Progress <br />
 
 ## Documentation
 
-[JavaDoc](https://dmiless.github.io/OOPProductionProject/index.html)
 [JavaDoc](https://dmiless.github.io/OOPProductionProject/package-summary.html)
 
 
