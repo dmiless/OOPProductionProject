@@ -1,5 +1,5 @@
 /**
- * The Item interface class for adding a new item
+ * The Item interface class for adding a new item.
  *
  * @author Dylan Miles
  */

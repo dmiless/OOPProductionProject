@@ -1,8 +1,7 @@
 /*
-  The employee class for adding new employee info from GUI into program.
-
-  @author Dylan Miles
- * @date 11/15/20
+ * The employee class for adding new employee info from GUI into program.
+ *
+ * @author Dylan Miles
  */
 
 import java.util.regex.Matcher;
@@ -28,11 +27,11 @@ public class Employee {
   private String password;
 
   private String email;
+
   /**
    * Main constructor for Employee class.
    *
    * @param fullName - full name of employee
-   *
    * @param password - password of employee
    */
   public Employee(String fullName, String password) {

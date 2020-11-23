@@ -9,11 +9,10 @@ public class Screen implements ScreenSpec {
   private int refreshRate;
   private int responseTime;
 
-  Screen(String Resolution, int RefreshRate, int ResponseTime) {
-    //super(Resolution, RefreshRate, ResponseTime);
-    this.resolution = Resolution;
-    this.refreshRate = RefreshRate;
-    this.responseTime = ResponseTime;
+  Screen(String resolution, int refreshRate, int responseTime) {
+    this.resolution = resolution;
+    this.refreshRate = refreshRate;
+    this.responseTime = responseTime;
   }
 
   public String toString() {

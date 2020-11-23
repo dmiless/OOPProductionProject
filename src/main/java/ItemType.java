@@ -1,5 +1,5 @@
 /**
- * The ItemType enum class for setting the product's type
+ * The ItemType enum class for setting the product's type.
  *
  * @author Dylan Miles
  */
@@ -11,14 +11,14 @@ public enum ItemType {
   VISUAL_MOBILE("VM");
 
   /**
-   * Local variable label to store item's name
+   * Local variable label to store item's name.
    */
   public String label;
 
   /**
-   * The ItemType constructor to set the item's name
+   * The ItemType constructor to set the item's name.
    *
-   * @param itemName
+   * @param itemName - name of Item
    */
   ItemType(String itemName) {
     this.label = itemName;
@@ -26,7 +26,7 @@ public enum ItemType {
   }
 
   /**
-   * SetItemType method to compare and return passed in string with matching ItemTypes
+   * SetItemType method to compare and return passed in string with matching ItemTypes.
    *
    * @param code - passed in itemType code
    * @return ItemType

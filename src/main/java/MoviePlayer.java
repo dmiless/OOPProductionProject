@@ -1,6 +1,6 @@
 /**
  * The MoviePlayer class for constructing a new MoviePlayer extends Product implements
- * MultimediaControl
+ * MultimediaControl.
  *
  * @author Dylan Miles
  */
@@ -8,8 +8,8 @@ public class MoviePlayer extends Product implements MultimediaControl {
 
   private final Screen screen;
   private final MonitorType monitorType;
-  private String Name;
-  private String Manufacturer;
+  private String name;
+  private String manufacturer;
 
   MoviePlayer(String name, String manufacturer, Screen screen, MonitorType monitorType) {
 
@@ -17,12 +17,15 @@ public class MoviePlayer extends Product implements MultimediaControl {
 
     this.screen = screen;
     this.monitorType = monitorType;
-    this.Name = name;
-    this.Manufacturer = manufacturer;
+    this.name = name;
+    this.manufacturer = manufacturer;
   }
 
+  /**
+   * toString method for MoviePlayer class to display class info.
+   */
   public String toString() {
-    return "Name: " + Name + "\n" + "Manufacturer: " + Manufacturer + "\n" + "Type: "
+    return "Name: " + name + "\n" + "Manufacturer: " + manufacturer + "\n" + "Type: "
         + ItemType.VISUAL
         + "\n" + screen + "\n"
         + "Monitor Type: " + monitorType;

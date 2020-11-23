@@ -13,7 +13,7 @@ public class Widget extends Product {
    */
   Widget(String name, String manufacturer, ItemType type, int Id) {
     super(name, manufacturer, type);
-    super.Id = Id;
+    super.id = Id;
   }
 
 

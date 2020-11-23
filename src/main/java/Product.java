@@ -1,6 +1,6 @@
 /**
  * The abstract Product class for defining the attributes Product and constructing together
- * implements Item
+ * implements Item.
  *
  * @author Dylan Miles
  */
@@ -9,54 +9,54 @@
 public abstract class Product implements Item {
 
   /**
-   * The ID of the product
+   * The ID of the product.
    */
-  public int Id;
+  public int id;
   /**
-   * The Type of the product
+   * The Type of the product.
    */
-  private ItemType Type;
+  private ItemType type;
   /**
-   * The Manufacturer of the product
+   * The Manufacturer of the product.
    */
-  private String Manufacturer;
+  private String manufacturer;
   /**
-   * The Name of the product
+   * The Name of the product.
    */
-  private String Name;
+  private String name;
 
   /**
-   * The main constructor of the product class
+   * The main constructor of the product class.
    *
    * @param name         - new name passed in
    * @param manufacturer - new manufacturer passed in
    * @param type         - new itemType passed in
    */
   Product(String name, String manufacturer, ItemType type) {
-    this.Name = name;
-    this.Manufacturer = manufacturer;
-    this.Type = type;
+    this.name = name;
+    this.manufacturer = manufacturer;
+    this.type = type;
   }
 
   /**
-   * The toString method of the product class to display this class's info
+   * The toString method of the product class to display this class's info.
    */
   public String toString() {
-    return "Name: " + Name + "\n" + "Manufacturer: " + Manufacturer + "\n" + "Type: "
-        + Type;
+    return "Name: " + name + "\n" + "Manufacturer: " + manufacturer + "\n" + "Type: "
+        + type;
   }
 
   public int getId() {
-    return Id;
+    return id;
   }
 
   /**
-   * Gets the Manufacturer of this product
+   * Gets the Manufacturer of this product.
    *
    * @return this Product's Manufacturer.
    */
   public String getManufacturer() {
-    return Manufacturer;
+    return manufacturer;
   }
 
   /**
@@ -65,16 +65,16 @@ public abstract class Product implements Item {
    * @param manufacturer This Product's new manufacturer.
    */
   public void setManufacturer(String manufacturer) {
-    Manufacturer = manufacturer;
+    this.manufacturer = manufacturer;
   }
 
   /**
-   * Gets the Name of this product
+   * Gets the Name of this product.
    *
    * @return this Product's Name.
    */
   public String getName() {
-    return Name;
+    return name;
   }
 
   /**
@@ -83,7 +83,7 @@ public abstract class Product implements Item {
    * @param name This Product's new name.
    */
   public void setName(String name) {
-    Name = name;
+    this.name = name;
   }
 
   /**
@@ -92,15 +92,15 @@ public abstract class Product implements Item {
    * @param type This Product's new type.
    */
   public void setType(ItemType type) {
-    Type = type;
+    this.type = type;
   }
 
   /**
-   * Gets the Type of this product
+   * Gets the Type of this product.
    *
    * @return this Product's Type.
    */
   public ItemType getType() {
-    return Type;
+    return type;
   }
 }

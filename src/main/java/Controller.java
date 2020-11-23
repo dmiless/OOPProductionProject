@@ -28,8 +28,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 
 
-
-
 public class Controller {
 
   /**
