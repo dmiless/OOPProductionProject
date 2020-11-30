@@ -5,6 +5,7 @@ I created this project in my object oriented class independently and am releasin
 I have been working on this project in COP 3003 for the Fall 2020 semester<br />
 This assignment has challenged me in using a GUI and taking the input to be used in a database as well as working with a number of different classes together.<br />
 This is my main production project for my object oriented course that has greatly expanded my knowledge of object oriented programming.<br />
+I plan to continue to work on this program to get the employee table as well as the screen classes fully functioning.<br />
 
 ## Demonstration
 
@@ -66,7 +67,6 @@ This project is licensed under the MIT License.
 Sprint 1 (Alpha) - 9/19/20 <br />
 Sprint 2 (Beta) - 10/31/20 <br />
 Sprint 3 (Release) - 12/2/20 <br />
-I originally had many iterations of this project on github, yet I named my orignal project incorrectly so I created a new project for the submittion of Sprint 1 (Alpha).
 
 ## Key Programming Concepts Utilized
 
